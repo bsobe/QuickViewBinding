@@ -1,0 +1,2 @@
+# QuickViewBinding
+Android Studio Plugin
