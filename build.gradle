@@ -1,0 +1,51 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.3.1'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'java'
+}
+
+group 'com.bsobe'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testİmplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // Lib
+    implementation("com.squareup:kotlinpoet:1.10.2")
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version = '2020.3.4'
+    updateSinceUntilBuild = false
+    //localPath = project.hasProperty("StudioRunPath") ? StudioRunPath : StudioCompilePath
+    type = 'IC'              // Use IntelliJ IDEA CE because it's the basis of the IntelliJ Platform
+ //   plugins = ["android"]
+}
+patchPluginXml {
+    changeNotes = """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+test {
+    useJUnitPlatform()
+}
+
+tasks {
+    runIde {
+        // jbrVersion.set("11_0_10b1145.115")
+        ideDir = file("/Applications/Android Studio.app/Contents")
+    }
+
+    patchPluginXml {
+        version = properties.get("pluginVersion")
+        sinceBuild = properties.get("pluginSinceBuild")
+    }
+}

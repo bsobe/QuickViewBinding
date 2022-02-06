@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.bsobe.QuickViewBinding</id>
+    <name>Quick View Binding</name>
+    <vendor email="sobe.baris@gmail.com" url="http://github.com/bsobe">Barış Söbe</vendor>
+
+    <description><![CDATA[
+    Intellij plugin that convert android data binding to view binding. This plugin has following features:
+        <ul>
+           <li>Convert databinding layout to view binding layout<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap.gif"/></li>
+        </ul>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <!--
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+    <depends>com.android.tools.idea.lang.databinding.dataBindingExpressionSupport</depends>
+
+    -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <intentionAction>
+            <className>ViewBinderAction</className>
+            <category>Android</category>
+        </intentionAction>
+
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
